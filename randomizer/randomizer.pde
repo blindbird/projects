@@ -3,33 +3,41 @@ int t1, t2, t3, t4, t0;
 int layout=2;
 
 void setup() {
-  size(1500,600,P3D);
+  size(1000,600,P3D);
   background(100);
-  frameRate(1500);
+  frameRate(15000);
 }
 
 void draw() {
   
   textSize(50);
   text("Circles",50,50);
-  text("Bars",800,50);
+  text("Bars",550,50);
   
-  if (mousePressed && mouseX<750) {
+  if (mousePressed && mouseX<500) {
     layout=0;
-  } else if (mousePressed && mouseX>750) {
+  } else if (mousePressed && mouseX>500) {
     layout=1;
   }
   
+  if (t0>750 || t1>750 || t2>750 || t3>750 ||t4>750) {
+    t0=0;
+    t1=0;
+    t2=0;
+    t3=0;
+    t4=0;
+    background(100);
+  }
   if (keyPressed) {
-      if (key=='r') {
-        t0=0;
-        t1=0;
-        t2=0;
-        t3=0;
-        t4=0;
-        background(100);
-      }
+    if (key=='r') {
+      t0=0;
+      t1=0;
+      t2=0;
+      t3=0;
+      t4=0;
+      background(100);
     }
+  }
     
     if (x==0) {
       t0+=1;
@@ -51,35 +59,29 @@ void draw() {
     background(100);
     textSize(20);
     x=int(random(5));
-    fill(255,0,255);
-    text(t0,250,450);
-    text(t1,500,150);
-    text(t2,750,450);
-    text(t3,1000,150);
-    text(t4,1250,450);
     fill(255);
-    text("Circles",50,50);
+    text("Circles",0,50);
     fill(0);
     stroke(0,255,255);
-    ellipse(250,450,t0,t0);
-    ellipse(500,150,t1,t1);
-    ellipse(750,450,t2,t2);
-    ellipse(1000,150,t3,t3);
-    ellipse(1250,450,t4,t4);
+    ellipse(100,450,t0,t0);
+    ellipse(300,200,t1,t1);
+    ellipse(500,450,t2,t2);
+    ellipse(700,200,t3,t3);
+    ellipse(900,450,t4,t4);
+    fill(255,0,255);
+    text(t0,100,50);
+    text(t1,300,50);
+    text(t2,500,50);
+    text(t3,700,50);
+    text(t4,900,50);
   }
   
   if (layout==1) {
     background(100);
     textSize(20);
     x=int(random(5));
-    fill(255,0,255);
-    text(t0,50,100);
-    text(t1,50,200);
-    text(t2,50,300);
-    text(t3,50,400);
-    text(t4,50,500);
     fill(255);
-    text("Bars",50,50);
+    text("Bars",0,50);
     fill(0);
     stroke(0,255,255);
     rect(100,100,t0,50);
@@ -87,5 +89,11 @@ void draw() {
     rect(100,300,t2,50);
     rect(100,400,t3,50);
     rect(100,500,t4,50);
+    fill(255,0,255);
+    text(t0,50,100);
+    text(t1,50,200);
+    text(t2,50,300);
+    text(t3,50,400);
+    text(t4,50,500);
   }
 }
